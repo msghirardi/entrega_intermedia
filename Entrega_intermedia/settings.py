@@ -55,7 +55,9 @@ ROOT_URLCONF = "Entrega_intermedia.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [
+            "/Users/lourdesmartinez/Documents/Entrega Intermedia/Entrega_intermedia/blog/templates"
+        ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
