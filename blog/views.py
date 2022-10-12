@@ -1,3 +1,4 @@
+from __future__ import barry_as_FLUFL
 from asyncio import DatagramTransport
 from multiprocessing import context
 from urllib import request
@@ -18,7 +19,11 @@ def buscar(request):
         titulo_para_buscar = request.POST["titulo"]
         resultados_de_busqueda = Articulo.objects.filter(titulo=titulo_para_buscar)
         contexto = {"resultados": resultados_de_busqueda}
-        return render(request, "blog/resultados-de-la-busqueda.html", context=contexto)
+        return render(request, "blog/resultado-de-busqueda.html", context=contexto)
+
+
+def mostrar_inicio(request):
+    return render(request, "blog/inicio.html")
 
 
 def procesar_formulario_articulo(request):
@@ -35,7 +40,7 @@ def procesar_formulario_articulo(request):
             nuevo_modelo = Articulo(
                 titulo=datos_ingresados_por_usuario["titulo"],
                 texto=datos_ingresados_por_usuario["texto"],
-                fecha=datos_ingresados_por_usuario["fecha"],
+                # fecha=datos_ingresados_por_usuario["fecha"],
             )
             nuevo_modelo.save()
 
